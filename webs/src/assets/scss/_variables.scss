@@ -1,0 +1,56 @@
+// colors
+$colors: (
+  "primary": #db9e3f,
+  "info": #4b67af,
+  "blue": #464f73,
+  "blue-1": #4394e4,
+  "blue-2": #203795,
+  "icon": #5b6484,
+  "danger":#791a16,
+  "white": #FFFFFF,
+  "light": #f9f9f9,
+  "light-1": #d4d9de,
+  "button-lg-border": #eceef0,
+  "button-lg-bg": #fcfcfc,
+  "grey": #999,
+  "grey-1": #666,
+  "grey-2":#777777,
+  "dark-1": #343440,
+  "dark": #222,
+  "black": #333,
+  "bg": #ededed,
+);
+$border-color: (
+  map-get($colors, "light-1")
+);
+// font-size
+$font-size: (
+  xxs: 8px,
+  xs: 10px,
+  sm: 12px,
+  md: 13px,
+  lg: 14px,
+  xl: 16px,
+  xxl: 17px
+);
+// flex
+$flex-js: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+);
+
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch, // 元素拉伸以适应容器
+  baseline: baseline, // 元素位于容器的基线上
+);
+//spacing
+$spacing-types: (m: margin, p: padding);
+$spacing-direction: (t: top, l: left, r: right, b: bottom);
+$spacing-base-size: 12px;
+$spacing-sizes: (0: 0, 1: 0.25, 2: 0.5, 3: 1, 4: 1.5, 5: 3);

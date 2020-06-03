@@ -1,0 +1,164 @@
+@import "../scss/variables";
+*{
+  box-sizing: border-box;
+}
+  body {
+  line-height: 1.2em;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+@each $var in (h1, h2, h3, h4, h5, a, div, p, span, i, strong) {
+  #{$var} {
+    line-height: 1.2em;
+  }
+}
+//color,Example: text-blue
+@each $colorKey, $color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+  .bg-#{$colorKey} {
+    background-color: $color;
+  }
+}
+//text
+.text-ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// Example: text-left
+@each $var in (left, right, center, justify) {
+  .text-#{$var} {
+    text-align: $var;
+  }
+}
+.LH {
+  line-height: 1.6em;
+}
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+// Example: fs-md
+@each $fsKey, $fs in $font-size {
+  .fs-#{$fsKey} {
+    font-size: $fs;
+  }
+}
+//flex
+.d-flex {
+  display: flex;
+}
+// flex-wrap
+@each $var in (nowrap, wrap, wrap-reverse) {
+  .flex-#{$var} {
+    flex-wrap: $var;
+  }
+}
+// flex-column
+@each $var in (row, row-reverse, column, column-reverse) {
+  .flex-#{$var} {
+    flex-direction: $var;
+  }
+}
+// Example: jc-center
+@each $jsKey, $js in $flex-js {
+  .jc-#{$jsKey} {
+    justify-content: $js;
+  }
+}
+// Example: ai-center
+@each $aiKey, $ai in $flex-ai {
+  .ai-#{$aiKey} {
+    align-items: $ai;
+  }
+}
+.flex-1 {
+  flex: 1;
+}
+//spacing
+@each $typeKey, $type in $spacing-types {
+  // m-1
+  @each $sizeKey, $size in $spacing-sizes {
+    .#{$typeKey}-#{$sizeKey} {
+      #{$type}: $size * $spacing-base-size;
+    }
+    // mx-1
+    .#{$typeKey}x-#{$sizeKey} {
+      #{$type}-left: $size * $spacing-base-size;
+      #{$type}-right: $size * $spacing-base-size;
+    }
+    // my-1
+    .#{$typeKey}y-#{$sizeKey} {
+      #{$type}-top: $size * $spacing-base-size;
+      #{$type}-bottom: $size * $spacing-base-size;
+    }
+    // mt-1
+    @each $directionKey, $direction in $spacing-direction {
+      .#{$typeKey}#{$directionKey}-#{$sizeKey} {
+        #{$type}-#{$direction} : $size * $spacing-base-size
+      }
+    }
+  }
+}
+// 边框
+@each $dir in (top, left, right, bottom) {
+  .border-#{$dir} {
+    border-#{$dir}: 1px solid $border-color;
+  }
+  .bd-lg-#{$dir} {
+    border-#{$dir}: 11px solid map-get($colors, "bg" );
+  }
+}
+//button
+.btn {
+  border: none;
+  border-radius: 3px;
+  font-size: map-get($font-size, "sm" );
+  padding: 4px 6px;
+  &.btn-lg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 39px;
+    background-color: map-get($colors , 'button-lg-bg' );
+    border: 1px solid map-get($colors, 'button-lg-border');
+    i {
+      color: map-get($colors , 'primary' );
+      font-size: 20px;
+      padding-right: 4px;
+      margin-left: -10px;
+    }
+  }
+}
+//nav
+.nav {
+  display: flex;
+  .nav-item {
+    border-bottom: 3px solid transparent;
+    font-size: 13px;
+    padding-bottom: 2px;
+    &.active {
+      color: map-get($colors, "primary");
+      border-bottom-color: map-get($colors, "primary" );
+    }
+  }
+  &.nav-inverse {
+    height: 42px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 12px;
+    .nav-item {
+      color: map-get($colors, "white" );
+      &.active {
+        border-bottom-color: map-get($colors , "white" );
+      }
+    }
+  }
+}
